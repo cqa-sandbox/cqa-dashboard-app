@@ -7,16 +7,16 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Nightly Integration Tests Dashboard',
-  url: 'https://mspnp.github.io',
-  baseUrl: '/intern-js-pipeline/',
+  url: 'https://cqa-sandbox.github.io',
+  baseUrl: '/cqa-dashboard-app/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'mspnp', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'cqa-sandbox', // Usually your GitHub org/user name.
+  projectName: 'cqa-dashboard-app', // Usually your repo name.
   deploymentBranch: 'gh-pages',
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
