@@ -1,6 +1,6 @@
 # Nightly Builds 2022 Summer Intern Project
 
-[![Github pages](https://github.com/mspnp/intern-js-pipeline/actions/workflows/github-pages.yml/badge.svg)](https://github.com/mspnp/intern-js-pipeline/actions/workflows/github-pages.yml)
+[![Github pages](https://github.com/cqa-sandbox/cqa-dashboard-app/actions/workflows/github-pages.yml/badge.svg)](https://github.com/cqa-sandbox/cqa-dashboard-app/actions/workflows/github-pages.yml)
 
 Documentation and the code samples that are apart of them play an important role in a developer's experience. Code samples are the starting point for many developers and it's critical that they work in order for developers to gain a deeper understanding of the documentation as well as the technology itself.
 
