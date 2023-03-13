@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'; 
-import RepoCard from './RepoCard.jsx';
+import OrganizationCard from './OrganizationCard';
 import Title from './Title';
 import { getRepos, partOfDashboard } from '../getData.js';
 import config from '../../config.json';
 
 //entire dashboard
-export function HomePage() {
+const HomePage = (props) =>{
 
   //list of repos to display
   const [repos, setRepos] = useState([]);
@@ -13,7 +13,7 @@ export function HomePage() {
   async function fetchRepos() {
     try {
       //the following lines automatically get all repos in the org and filter for ones with a test harness
-      const asyncResponse = await getRepos(config.organization);
+      const asyncResponse = await getRepos(props.organization);
       if([...asyncResponse] != [...repos]){
         setRepos(asyncResponse);
       }
@@ -25,8 +25,8 @@ export function HomePage() {
   useEffect(() => {
     
     // comment fetchRepos() and uncomment the following lines if you want to list the repos that should be on the dashboard
-    if([...repos] != config.repos){
-      setRepos(config.repos)
+    if([...repos] != props.repos){
+      setRepos(props.repos)
     }
     
     //fetchRepos();
@@ -36,10 +36,11 @@ export function HomePage() {
   return (
     <div >
         <Title/>
-        { repos.map(element => {
-            return <RepoCard key={element} repoName={element} orgName={config.organization}/>
-        })} 
-      
+          {
+            Object.entries(config).map(([org, repos]) =>{
+              return <OrganizationCard organization={org}  repos={repos}/>
+            })
+          }
     </div>
   );
 }

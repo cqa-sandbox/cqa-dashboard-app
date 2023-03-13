@@ -1,4 +1,8 @@
 {
-    "organization" : "staticwebdev",
-    "repos" : ["vanilla-basic", "nextjs-starter", "blazor-starter", "angular-basic", "react-basic" ]
+    "cqa-sandbox" : ["vanilla-basic", 
+                    "nextjs-starter", 
+                    "nuxtjs-starter",
+                    "blazor-starter", 
+                    "angular-basic", 
+                    "react-basic" ]   
 }
