@@ -6,18 +6,29 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Nightly Integration Tests Dashboard',
-  url: 'https://mspnp.github.io',
-  baseUrl: '/intern-js-pipeline/',
+
+  // ------ Site Metadata ------
+  title: 'Code Samples Validation (Dashboard-v2)',
+  url: 'https://cqa-sandbox.github.io',
+  baseUrl: '/cqa-dashboard-app/',
+  favicon: 'img/favicon.ico',
+
+  // ------- Deployment Config -----
+  organizationName: 'cqa-sandbox', 
+  projectName: 'cqa-dashboard-app', 
+  deploymentBranch: 'gh-pages',
+
+  // ------- Custom Configurations ------
+  customFields: {
+    description: 
+    "The Code Samples Validation project automates testing of target code samples repositories, with a centralized reporting dashboard for quick review of current status. For each target repo, we publish the `Latest Run` status (left) based on last commit, PR or manual workflow dispatch. And we maintain a 7-day history of `Nightly Tests` status (right) run on a predefined schedule."
+  },
+
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'mspnp', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-  deploymentBranch: 'gh-pages',
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
