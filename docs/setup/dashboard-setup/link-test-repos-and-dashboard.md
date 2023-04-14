@@ -6,11 +6,11 @@ sidebar_position: 3
 
 Modify Playwright github actions in the test repositories to notify and update dashboard to the latest test results:
 
-1. Create a personal access token named `PAT_TOKEN` with `repo` and `workflow` permissions
+1. Create a personal access token named `DASHBOARD_REPORT_PAT` with `repo` and `workflow` permissions
       1. If the organization your dashboard is located in requires SSO enable SSO for the PAT token
-2. In the GitHub settings of the test repository, add the personal access token `PAT_TOKEN` to the test repository's actions secrets
+2. In the GitHub settings of the test repository or its organization, add the personal access token `DASHBOARD_REPORT_PAT` to its actions secrets
       ![Location of actions secrets](./img/actions-secrets.png)
-1. Append the following steps to the `playwright-onDemand.yml` file below the current steps in the `test` job.
+3. Append the following steps to the `playwright-onDemand.yml` file below the current steps in the `test` job.
 
     ```yaml
         - name: Get current date
@@ -38,7 +38,7 @@ Modify Playwright github actions in the test repositories to notify and update d
           with:
             external_repository: mspnp/intern-js-pipeline
             publish_branch: gh-pages
-            personal_token: ${{ secrets.PAT_TOKEN }}
+            personal_token: ${{ secrets.DASHBOARD_REPORT_PAT }}
             publish_dir: ${{steps.download.outputs.download-path}}
             destination_dir: test-reports/${{ github.repository }}
             keep_files: true
@@ -60,7 +60,7 @@ Modify Playwright github actions in the test repositories to notify and update d
           # Runs a single command using the runners shell
           - name: Notify docusaurus repo
             env:
-              GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+              GITHUB_TOKEN: ${{ secrets.DASHBOARD_REPORT_PAT }}
             run: |
               gh api repos/mspnp/intern-js-pipeline/dispatches \
                   --raw-field event_type=rebuild-site
@@ -131,7 +131,7 @@ Modify Playwright github actions in the test repositories to notify and update d
           with:
             external_repository: mspnp/intern-js-pipeline
             publish_branch: gh-pages
-            personal_token: ${{ secrets.PAT_TOKEN }}
+            personal_token: ${{ secrets.DASHBOARD_REPORT_PAT }}
             publish_dir: ${{steps.download.outputs.download-path}}
             destination_dir: test-reports/${{ github.repository }}
             keep_files: true
@@ -153,7 +153,7 @@ Modify Playwright github actions in the test repositories to notify and update d
           # Runs a single command using the runners shell
           - name: Notify docusaurus repo
             env:
-              GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+              GITHUB_TOKEN: ${{ secrets.DASHBOARD_REPORT_PAT }}
             run: |
               gh api repos/mspnp/intern-js-pipeline/dispatches \
                   --raw-field event_type=rebuild-site
@@ -161,6 +161,6 @@ Modify Playwright github actions in the test repositories to notify and update d
 
       This allows the `test` job to store the Playwright artifact. `storeReports` then pushes the Playwright artifact to a folder in the dashboard's `gh_pages`. Lastly, `notify-dashboard` sends a trigger to the dashboard notifying it to rebuild.
 
-  4. Change the value of `external_repository` under the `storeReports` job from `mspnp/intern-js-pipeline` to the dashboard's organization and repository name
-  5. In the `notify-dashboard` job, replace `mspnp/intern-js-pipeline` in `repos/mspnp/intern-js-pipeline/dispatches` with the dashboard's organization and repository name
-  6. Triggering the playwright Github action should now cause the dashboard's rebuild workflow to execute
+4. Change the value of `external_repository` under the `storeReports` job from `mspnp/intern-js-pipeline` to the dashboard's organization and repository name
+5. In the `notify-dashboard` job, replace `mspnp/intern-js-pipeline` in `repos/mspnp/intern-js-pipeline/dispatches` with the dashboard's organization and repository name
+6. Triggering the playwright Github action should now cause the dashboard's rebuild workflow to execute

@@ -1,0 +1,8 @@
+{
+  "label": "Enable Automatic Issue Creation",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "How to add in issue creation to the current test pipeline"
+  }
+}

@@ -6,6 +6,12 @@ Documentation and the code samples that are apart of them play an important role
 
 This project aims to improve the quality of our code samples by running automated nightly integration tests on each repository referenced in documentation and then consolidating and presenting test results of all repositories on a dashboard. The goal was to take a proactive approach to ensuring all code samples work without wasting time manually testing each one.
 
+V2 of this project implements the following:
+
+* Data driven repo selection using github repository statistics 
+* Automated creation of issues upon playwright test failure
+* Refactored code structure to allow for reuse of cmmon github workflows and othered shared code
+
 ### Dashboard
 
 You can view the live dashboard here [Nightly Integration Tests Dashboard](https://mspnp.github.io/intern-js-pipeline/)
