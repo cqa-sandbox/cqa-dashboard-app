@@ -1,8 +1,7 @@
 {
     "cqa-sandbox" : ["vanilla-basic", 
                     "nextjs-starter", 
-                    "nuxtjs-starter",
-                    "blazor-starter", 
+                    "nuxt-3-starter",
                     "angular-basic", 
                     "react-basic" ]   
 }
